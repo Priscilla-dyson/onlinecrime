@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>New Complaint</title>
+    <link rel="stylesheet" href="{% static 'css/new_complaint.css' %}" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Submit a New Complaint</h1>
+      <form method="post" action="{% url 'submit_complaint' %}">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input type="text" id="title" name="title" required />
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea
+            id="description"
+            name="description"
+            rows="5"
+            required
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <label for="category">Category</label>
+          <select id="category" name="category" required>
+            <option value="billing">Billing</option>
+            <option value="service">Service</option>
+            <option value="product">Product</option>
+          </select>
+        </div>
+        <button type="submit" class="submit-button">Submit Complaint</button>
+      </form>
+    </div>
+  </body>
+</html>

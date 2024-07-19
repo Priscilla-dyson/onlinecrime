@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Online Crime Report</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>Online Crime Report System</h1>
+        <nav>
+          <ul>
+            <li><a href="{% url 'login' %}">Login</a></li>
+            <li><a href="{% url 'register' %}">Register</a></li>
+            <li><a href="{% url 'report_complaint' %}">Report a Crime</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <section class="intro">
+          <h2>Welcome to the Online Crime Report System</h2>
+          <p>
+            We provide a secure and efficient way to report crimes and
+            incidents. Your safety is our priority, and your reports help keep
+            the community safe.
+          </p>
+        </section>
+        <section class="features">
+          <h2>Features</h2>
+          <div class="feature">
+            <h3>Anonymous Reporting</h3>
+            <p>Report crimes without revealing your identity.</p>
+          </div>
+          <div class="feature">
+            <h3>24/7 Availability</h3>
+            <p>Submit your report anytime, from anywhere.</p>
+          </div>
+          <div class="feature">
+            <h3>Real-Time Tracking</h3>
+            <p>Track the status of your report and receive updates.</p>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2024 Online Crime Report System. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

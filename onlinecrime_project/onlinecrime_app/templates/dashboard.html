@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Dashboard</h1>
+        <a href="{% url 'logout' %}" class="logout">Logout</a>
+      </div>
+      <div class="stats">
+        <div class="stat">
+          <h2>{{ total_complaints }}</h2>
+          <p>Total Complaints</p>
+        </div>
+        <div class="stat">
+          <h2>{{ resolved_complaints }}</h2>
+          <p>Resolved Complaints</p>
+        </div>
+        <div class="stat">
+          <h2>{{ pending_complaints }}</h2>
+          <p>Pending Complaints</p>
+        </div>
+      </div>
+      <table class="complaints-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Status</th>
+            <th>Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for complaint in complaints %}
+          <tr>
+            <td>{{ complaint.id }}</td>
+            <td>{{ complaint.title }}</td>
+            <td>{{ complaint.status }}</td>
+            <td>
+              <a href="{% url 'complaint_detail' complaint.id %}" class="button"
+                >View</a
+              >
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
